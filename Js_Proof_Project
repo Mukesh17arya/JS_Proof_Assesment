@@ -1,0 +1,69 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+const arrNFT= [];       //created an array for storing object 
+
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+
+function mintNFT (actName,actAge,actGender,actMovie) {
+   const objNFT={
+      "Name": actName,
+      "Age" : actAge,
+      "Gender": actGender,
+      "Movies_Count" : actMovie
+   }
+   arrNFT.push(objNFT);
+   console.log("NFT named "+actName+" created successfully.");
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+    console.log("\nRepresenting the metadata:\n")
+    for (let i = 0; i < arrNFT.length; i++) {
+        if(arrNFT[i].Gender=="Male"){
+            console.log("<--------------ACTOR----------------->")
+            // console.log("NFT number: " + (i+1));
+            console.log("Name\t\t : " +"\t" +arrNFT[i].Name);
+            console.log("Age\t\t : " + "\t" +arrNFT[i].Age);
+            console.log("Gender\t\t : " + "\t"+arrNFT[i].Gender);
+            console.log("No of movies\t : " + "\t"+arrNFT[i].Movies_Count);
+            console.log("\n");
+        }
+
+        else{
+            console.log("<-------------ACTRESS-------------->")
+            // console.log("NFT number: " + (i+1));
+            console.log("Name\t\t : " +"\t" +arrNFT[i].Name);
+            console.log("Age\t\t : " + "\t" +arrNFT[i].Age);
+            console.log("Gender\t\t : " + "\t"+arrNFT[i].Gender);
+            console.log("No of movies\t : " + "\t"+arrNFT[i].Movies_Count);
+            console.log("\n");
+        }
+ }
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() 
+{
+    console.log("The total count of the NFT's is "+arrNFT.length);
+}
+
+// call your functions below this line
+mintNFT("Denzel Washington",69,"Male","48 Movies");
+mintNFT("Emma Watson",34,"Female","29 Movies");
+mintNFT("Vin Diesel",56,"Male","42 Movies");
+mintNFT("Jackie Chan",70,"Male","106 Movies");
+mintNFT("Scarlett Johanson",39 ,"Female","70 Movies");
+listNFTs();
+getTotalSupply();
